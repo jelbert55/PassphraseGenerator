@@ -9,6 +9,6 @@ TO DO
 - Organize conjugations, create function to choose proper conjugation based on random sentence structure and tense.
 - Use CSV file to store words and all their conjugations. Benefits of an array while being a separate file.
 - Add a bunch of sentence structures.
-- Fix the situation where the index is 0 and it grabs the last item in the wordlist instead of the first
+- Fix the situation where the index is 0 and it grabs the last item in the wordlist instead of the first. Could fix by treating the first row as a header?
 - Give the user multiple passphrases to choose from?
 - Make passphrase into a class object? Could be cool, especially if you have multiple passphrases you are giving to the user.
