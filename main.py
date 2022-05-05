@@ -19,10 +19,18 @@ structures_4 = ['AdjAdjNouVer','NouVerAdjNou','AdjNouVerNou']
 structures_5 = ['NouVerAdjAdjNou','AdjNouVerAdjNou']
 structures_6 = ['AdjAdjNouVerAdvNou']
 
+########################################
+# Tense Information - see link for examples and descriptions
+# https://englishstudyhere.com/tenses/12-types-of-tenses-with-examples-pdf/
+# We may not want to use all of these, but here they are in a list
+########################################
+# List of possible verb tenses
+tenses = ['Simple Present','Present Progressive','Simple Past','Past Progressive','Present Perfect','Present Perfect Progressive','Past Perfect','Past Perfect Progressive','Future Will','Future Going To','Future Progressive','Future Perfect' ]
 
-
+# Charset for fancy printing
 charset = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']
 
+# Function to print fancily, sort of like the matrix. Just for fun.
 def fancy_print(str):
   for letter in str:
     for i in range(5):
@@ -41,7 +49,7 @@ def roll_dice(number_of_rolls):
     
   return all_rolls
 
-#takes the part of speech 3 char block, creates an index, and grabs the correct part of speech from the associated wordlist
+# Takes the part of speech 3 char block, creates an index, and grabs the correct part of speech from the associated wordlist
 def grab_POS(POS,num_rolls,roll_count):
   index = roll_dice(num_rolls) #roll the dice to get the word index
   print('Word index ' + str(roll_count) + ': ', end='')
@@ -98,7 +106,7 @@ def generate_pp(pp_length):
 
   roll_count = 1
   
-  #get desired number of rolls
+  # Get desired number of rolls
   number_of_rolls = int()
   while number_of_rolls not in [3,4,5,6]:
     number_of_rolls = int(input('How many "dice" would you like to roll? (3-6) '))
