@@ -19,6 +19,8 @@ structures_4 = ['AdjAdjNouVer','NouVerAdjNou','AdjNouVerNou']
 structures_5 = ['NouVerAdjAdjNou','AdjNouVerAdjNou']
 structures_6 = ['AdjAdjNouVerAdvNou']
 
+
+
 charset = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']
 
 def fancy_print(str):
@@ -39,19 +41,16 @@ def roll_dice(number_of_rolls):
     
   return all_rolls
 
-
-def grab_POS(part_of_speech):
-  index = roll_dice(number_of_rolls) #roll the dice to get the word index
+#takes the part of speech 3 char block, creates an index, and grabs the correct part of speech from the associated wordlist
+def grab_POS(POS,num_rolls,roll_count):
+  index = roll_dice(num_rolls) #roll the dice to get the word index
   print('Word index ' + str(roll_count) + ': ', end='')
   for char in index: # display ints one at a time for coolness
     sys.stdout.write(Fore.GREEN + Back.BLACK + char)
     time.sleep(0.25)
   print()
 
-  # # Read from the nouns file
-  # word,file_length = read_file(vars[part_of_speech],index)
-
-  file_name = vars[part_of_speech]
+  file_name = vars[POS]
 
   with open(file_name,'r') as file:
     file_length = len(file.readlines())
@@ -66,31 +65,7 @@ def grab_POS(part_of_speech):
         #print('TEST ' + file_name + ': ' + str(i)) # I CANNOT FIGURE OUT HOW TO ACCESS LINE 1. I = 0 PRINTS LINE 2 FOR SOME REASON. SET INDEX TO 0 TO SEE WHAT I MEAN
         word = file.readlines()[i-1].strip() + ' '
 
-  return word
-
-
-  
-
-
-# Read from files, return corresponding word
-# def read_file(file_name,index):
-#   with open(file_name,'r') as file:
-#     file_length = len(file.readlines())
-#     file.seek(0) #put the scanner/cursor thing back at the beginning of the file. 
-#     if file_length < int(index):         
-#       index = str(int(index) % file_length) #if index is out of range mod it to put it back in range.
-#     for i, line in enumerate(file):
-#       if i == int(index):
-#         file.seek(0)
-        
-#         # Use the below print statement to check the index and the word from the list
-#         #print('TEST ' + file_name + ': ' + str(i)) # I CANNOT FIGURE OUT HOW TO ACCESS LINE 1. I = 0 PRINTS LINE 2 FOR SOME REASON. SET INDEX TO 0 TO SEE WHAT I MEAN
-#         word = file.readlines()[i-1].strip() + ' '
-#         return word,file_length
-
-
-
-
+  return word,file_length
 
 # Generates passphrase and entropy.
 def generate_pp(pp_length):
@@ -123,6 +98,7 @@ def generate_pp(pp_length):
 
   roll_count = 1
   
+  #get desired number of rolls
   number_of_rolls = int()
   while number_of_rolls not in [3,4,5,6]:
     number_of_rolls = int(input('How many "dice" would you like to roll? (3-6) '))
@@ -131,8 +107,7 @@ def generate_pp(pp_length):
   for part_of_speech in sentence_parts:
 
     # Will call each function needed and concat the passphrase generated
-    
-    word = grab_POS(part_of_speech)
+    word,file_length = grab_POS(part_of_speech,number_of_rolls,roll_count)
 
     passphrase += word
 
@@ -146,9 +121,6 @@ def generate_pp(pp_length):
   
   return passphrase, total_entropy
 
-      
-
-  
 
 # While loop to run all of the code and above functions
 while True:
