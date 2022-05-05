@@ -2,9 +2,7 @@
 
 # For experimentation on csv reading.
 
-from asyncore import read
 import random, csv
-print('test')
 
 def read():
     with open('nouns.csv','r') as csv_file:
