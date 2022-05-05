@@ -25,7 +25,7 @@ structures_6 = ['AdjAdjNouVerAdvNou']
 # We may not want to use all of these, but here they are in a list
 ########################################
 # List of possible verb tenses
-tenses = ['Simple Present','Present Progressive','Simple Past','Past Progressive','Present Perfect','Present Perfect Progressive','Past Perfect','Past Perfect Progressive','Future Will','Future Going To','Future Progressive','Future Perfect' ]
+tenses = ['Simple Present','Present Progressive','Simple Past','Past Progressive','Present Perfect','Present Perfect Progressive','Past Perfect','Past Perfect Progressive','Future Will','Future Going To','Future Progressive','Future Perfect']
 
 # Charset for fancy printing
 charset = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']

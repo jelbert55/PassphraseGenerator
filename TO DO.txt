@@ -1,0 +1,14 @@
+WE NEED TO ESTABLISH AN MVP ASAP. Below are my proposed criteria--
+- Grammatically correct sentence of a set length. We can add separate structures after we get one working example.
+- Randomly chosen sentence structure. Can start with just one or two that we know work, then add more as we progress.
+- Chooses a tense for the verbs, then grabs the correct conjugations from a CSV file
+
+TO DO
+- Check entropy calculation. Dr. Vance suggested it might be incorrect.
+- Get better, shorter word lists. Additionally, random
+- Organize conjugations, create function to choose proper conjugation based on random sentence structure and tense.
+- Use CSV file to store words and all their conjugations. Benefits of an array while being a separate file.
+- Add a bunch of sentence structures.
+- Fix the situation where the index is 0 and it grabs the last item in the wordlist instead of the first
+- Give the user multiple passphrases to choose from?
+- Make passphrase into a class object? Could be cool, especially if you have multiple passphrases you are giving to the user.
