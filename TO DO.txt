@@ -12,3 +12,8 @@ TO DO
 - Fix the situation where the index is 0 and it grabs the last item in the wordlist instead of the first. Could fix by treating the first row as a header?
 - Give the user multiple passphrases to choose from?
 - Make passphrase into a class object? Could be cool, especially if you have multiple passphrases you are giving to the user.
+
+
+Notes
+- will probably need at least one word more than diceware
+- entropy calculation: length of each wordlist for each word in the passphrase* length of other wordlists/ 
