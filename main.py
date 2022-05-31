@@ -49,7 +49,7 @@ def roll_dice(number_of_rolls):
   all_rolls =  ''
   
   for i in range(number_of_rolls): 
-    roll = str(random.randint(1,6)) #simulate rolling a dice
+    roll = str(random.randint(0,9)) #simulate rolling a 10 sided dice
     all_rolls += roll
     
   return all_rolls
@@ -110,7 +110,7 @@ def generate_pp(pp_length):
   # Get desired number of rolls
   number_of_rolls = int()
   while number_of_rolls not in [3,4,5,6]:
-    number_of_rolls = int(input('How many "dice" would you like to roll? (3-6) '))
+    number_of_rolls = int(input('How many 10 sided "dice" would you like to roll? (3-6) '))
 
   # For loop that takes a part of speech and finds the relevant random word
   for part_of_speech in sentence_parts:
@@ -132,8 +132,10 @@ def generate_pp(pp_length):
 # While loop to run all of the code and above functions
 while True:
   # Allow user to pick passphrase length
-  print('How many words between 3 and 6 would you like in your passphrase? Or type "Exit" to quit. ')
+  print('How many words between 3 and 6 would you like in your passphrase? Leave blank to select the default value of 6, or type "Exit" to quit. ')
   length = input()
+  if not length:
+    length = '6'
 
   # If valid input, generate the passphrase
   if length in ['3','4','5','6']:
