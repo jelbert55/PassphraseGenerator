@@ -13,6 +13,7 @@ TO DO
 - Give the user multiple passphrases to choose from?
 - Make passphrase into a class object? Could be cool, especially if you have multiple passphrases you are giving to the user.
 
+- Add code to pluralize nouns
 
 Notes
 - will probably need at least one word more than diceware

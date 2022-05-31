@@ -5,7 +5,7 @@
 import random, csv
 
 def read():
-    with open('nouns.csv','r') as csv_file:
+    with open('Nou.csv','r') as csv_file:
         csv_reader = csv.reader(csv_file)
 
         index = random.randint(0,1000)

@@ -63,7 +63,10 @@ def grab_POS(POS,num_rolls,roll_count):
     time.sleep(0.25)
   print()
 
-  file_name = POS + ".txt"
+  if POS == "Nou":
+    file_name = "Nou.csv"
+  else:
+    file_name = POS + ".txt"
 
   with open(file_name,'r') as file:
     file_length = len(file.readlines())
@@ -73,9 +76,9 @@ def grab_POS(POS,num_rolls,roll_count):
     for i, line in enumerate(file):
       if i == int(index):
         file.seek(0)
-        
         # Use the below print statement to check the index and the word from the list
         #print('TEST ' + file_name + ': ' + str(i)) # I CANNOT FIGURE OUT HOW TO ACCESS LINE 1. I = 0 PRINTS LINE 2 FOR SOME REASON. SET INDEX TO 0 TO SEE WHAT I MEAN
+        #word = line[0]
         word = file.readlines()[i-1].strip() + ' '
 
   return word,file_length
@@ -97,6 +100,7 @@ def generate_pp(pp_length):
     structure_list = structures_6
 
   temp_struct = random.choice(structure_list)
+  print("tempstruct",temp_struct)
   struct_entropy = calculate_entropy(len(structure_list),1)
 
   # Add the entropy from the random sentence structure choice
