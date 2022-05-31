@@ -30,6 +30,11 @@ tenses = ['Simple Present','Present Progressive','Simple Past','Past Progressive
 # Charset for fancy printing
 charset = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']
 
+# Funtion to calculate entropy
+def calculate_entropy(r,l):
+  entropy = l * math.log(r,2)
+  return entropy
+
 # Function to print fancily, sort of like the matrix. Just for fun.
 def fancy_print(str):
   for letter in str:
@@ -58,7 +63,7 @@ def grab_POS(POS,num_rolls,roll_count):
     time.sleep(0.25)
   print()
 
-  file_name = vars[POS]
+  file_name = POS + ".txt"
 
   with open(file_name,'r') as file:
     file_length = len(file.readlines())
@@ -83,17 +88,16 @@ def generate_pp(pp_length):
   
   # Pick a random sentence structure given number of words in the desired passphrase. Also, calculate the entropy for the given sentence structure list.
   if pp_length == '3':
-    temp_struct = random.choice(structures_3)
-    struct_entropy = math.log(len(structures_3))/math.log(2)
-  if pp_length == '4':
-    temp_struct = random.choice(structures_4)
-    struct_entropy = math.log(len(structures_4))/math.log(2)
-  if pp_length == '5':
-    temp_struct = random.choice(structures_5)
-    struct_entropy = math.log(len(structures_5))/math.log(2)
-  if pp_length == '6':
-    temp_struct = random.choice(structures_6)
-    struct_entropy = math.log(len(structures_6))/math.log(2)
+    structure_list = structures_3
+  elif pp_length == '4':
+    structure_list = structures_4
+  elif pp_length == '5':
+    structure_list = structures_5
+  elif pp_length == '6':
+    structure_list = structures_6
+
+  temp_struct = random.choice(structure_list)
+  struct_entropy = calculate_entropy(len(structure_list),1)
 
   # Add the entropy from the random sentence structure choice
   entropy_list.append(struct_entropy)

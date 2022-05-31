@@ -16,4 +16,4 @@ TO DO
 
 Notes
 - will probably need at least one word more than diceware
-- entropy calculation: length of each wordlist for each word in the passphrase* length of other wordlists/ 
+- entropy calculation: length of each wordlist for each word in the passphrase* length of other wordlists
