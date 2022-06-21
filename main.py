@@ -12,6 +12,7 @@ Art = 'articles.txt'
 Prp = 'prepositions.txt'
 Ppn = 'propernouns.txt'
 Prn = 'pronouns.txt'
+Det = 'determiners.txt'
 
 # Possible sentence structures for each passphrase length. Add potential structures to this list in the form you see.
 structures_3 = ['AdjNouVer','NouVerAdv','VerNouAdj']
@@ -23,9 +24,14 @@ structures_6 = ['AdjAdjNouVerAdvNou']
 # Tense Information - see link for examples and descriptions
 # https://englishstudyhere.com/tenses/12-types-of-tenses-with-examples-pdf/
 # We may not want to use all of these, but here they are in a list
+
+# Opted to be simple and use present, preterite, future, and continous tenses, 
+# these match the conjugator conjugator.reverso.net
+# present, preterite, and continous are in the Ver.csv, future simply needs "will" concatenated behind it
 ########################################
 # List of possible verb tenses
-tenses = ['Simple Present','Present Progressive','Simple Past','Past Progressive','Present Perfect','Present Perfect Progressive','Past Perfect','Past Perfect Progressive','Future Will','Future Going To','Future Progressive','Future Perfect']
+#tenses = ['Simple Present','Present Progressive','Simple Past','Past Progressive','Present Perfect','Present Perfect Progressive','Past Perfect','Past Perfect Progressive','Future Will','Future Going To','Future Progressive','Future Perfect']
+tenses = ['Present', 'Preterite', 'Future', 'Continous']
 
 # Charset for fancy printing
 charset = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','1','2','3','4','5','6','7','8','9','0']
