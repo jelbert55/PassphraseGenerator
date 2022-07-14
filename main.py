@@ -62,31 +62,41 @@ def roll_dice(number_of_rolls):
 
 # Takes the part of speech 3 char block, creates an index, and grabs the correct part of speech from the associated wordlist
 def grab_POS(POS,num_rolls,roll_count):
-  index = roll_dice(num_rolls) #roll the dice to get the word index
-  print('Word index ' + str(roll_count) + ': ', end='')
-  for char in index: # display ints one at a time for coolness
+  index = int(roll_dice(num_rolls)) #roll the dice to get the word index
+  print('Word index ' + str(roll_count) + ': ', end='')                   #base index is now an int, use index_str if needed
+  index_str = str(index)
+  for char in index_str: # display ints one at a time for coolness
     sys.stdout.write(Fore.GREEN + Back.BLACK + char)
     time.sleep(0.25)
   print()
 
+  file_name = POS + ".csv" #changed to only csv file reading
+
+  '''
   if POS == "Nou":
     file_name = "Nou.csv"
   else:
     file_name = POS + ".txt"
+  '''
 
-  with open(file_name,'r') as file:
-    file_length = len(file.readlines())
-    file.seek(0) #put the scanner/cursor thing back at the beginning of the file. 
-    if file_length < int(index):         
-      index = str(int(index) % file_length) #if index is out of range mod it to put it back in range.
-    for i, line in enumerate(file):
-      if i == int(index):
-        file.seek(0)
+  file_length = 0
+  with open(file_name) as f:
+      file_length = sum(1 for row in f)  #stores the length of the csv file
+
+  with open(file_name,'r') as csv_file:
+    csv_reader = csv.reader(csv_file) #initialize the reader object
+    
+    if file_length < index:         
+      index = int(index) % file_length #if index is out of range mod it to put it back in range.
+
+    word = ""
+    for i,line in enumerate(csv_reader):
+      if i == index:
+        word = line[0]
         # Use the below print statement to check the index and the word from the list
         #print('TEST ' + file_name + ': ' + str(i)) # I CANNOT FIGURE OUT HOW TO ACCESS LINE 1. I = 0 PRINTS LINE 2 FOR SOME REASON. SET INDEX TO 0 TO SEE WHAT I MEAN
         #word = line[0]
-        word = file.readlines()[i-1].strip() + ' '
-
+    word = word.strip() + " "
   return word,file_length
 
 # Generates passphrase and entropy.
